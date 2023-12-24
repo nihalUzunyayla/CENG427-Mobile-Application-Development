@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PawRescue</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="title">PAW RESCUE</string>
+    <string name="mail_hint">E-mail</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Username</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="remember">Remember me</string>
+    <string name="account_prompt">Don\'t you have an account?</string>
+    <string name="account_prompt2">Already have an account?</string>
+    <string name="term_condition">I accept the terms and conditions</string>
+    <string name="empty_field">Please fill in all fields</string>
+    <string name="wrong_password">Passwords do not match</string>
+    <string name="accept_term_condition">Please accept the terms and conditions</string>
+    <string name="no_account">There is no such account</string>
+
+</resources>
