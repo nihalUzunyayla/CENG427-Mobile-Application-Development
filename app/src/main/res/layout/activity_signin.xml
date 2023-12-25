@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00CED1"
+    android:background="#E1BEE7"
     tools:context=".SignInActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
@@ -27,7 +27,9 @@
         android:layout_below="@id/textViewTitle"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:padding="10dp"
+    />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -39,7 +41,9 @@
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:padding="10dp"
+        />
 
     <TextView
         android:id="@+id/textViewForgotPassword"
@@ -66,8 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
-        android:background="#FFFFFF"
-        android:textColor="#00CED1"
+        android:background="#B027A2"
+        android:textColor="#FFFFFF"
         android:layout_below="@id/checkBoxRememberMe"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -88,8 +92,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
-        android:background="#FFFFFF"
-        android:textColor="#00CED1"
+        android:background="#B027A2"
+        android:textColor="#FFFFFF"
         android:layout_below="@id/textViewSignUpPrompt"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true" />

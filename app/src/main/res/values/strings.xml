@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PawRescue</string>
+    <string name="app_name">Paw Rescue</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -19,5 +19,8 @@
     <string name="wrong_password">Passwords do not match</string>
     <string name="accept_term_condition">Please accept the terms and conditions</string>
     <string name="no_account">There is no such account</string>
+    <string name="quote">When I look into the eyes of an animal I do not see an animal. I see a living being. I see a friend. I feel a soul.</string>
+    <string name="author">A. D. Williams</string>
+    <string name="donate_btn">DONATE NOW</string>
 
 </resources>
