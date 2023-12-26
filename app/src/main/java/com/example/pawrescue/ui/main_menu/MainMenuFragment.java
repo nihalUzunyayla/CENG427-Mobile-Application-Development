@@ -1,4 +1,4 @@
-package com.example.pawrescue.ui.dashboard;
+package com.example.pawrescue.ui.main_menu;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pawrescue.databinding.FragmentDashboardBinding;
+import com.example.pawrescue.databinding.FragmentMainMenuBinding;
 
 public class MainMenuFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentMainMenuBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        MainMenuViewModel mainMenuViewModel =
+                new ViewModelProvider(this).get(MainMenuViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentMainMenuBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewMainMenu;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        mainMenuViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

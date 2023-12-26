@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1BEE7"
+    android:background="@color/white"
     tools:context=".SignInActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textColor="#FFFFFF"
+        android:textColor="#B983C3"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_hint"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/textViewTitle"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgot"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp" />
@@ -59,11 +59,11 @@
         android:id="@+id/checkBoxRememberMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/remember"
-        android:textColor="#FFFFFF"
         android:layout_below="@id/textViewForgotPassword"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/remember"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/account_prompt"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:layout_below="@id/buttonSignIn"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />

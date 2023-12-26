@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1BEE7"
+    android:background="@color/white"
     tools:context=".SignUpActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textColor="#FFFFFF"
+        android:textColor="#B983C3"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_hint"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/textViewTitle"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/mail_hint"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/editTextEmail"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
-        android:background="#FFFFFF"
+        android:background="@drawable/edit_text_border"
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/term_condition"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:layout_below="@id/editTextConfirmPassword"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp" />
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/remember"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:layout_below="@id/checkBoxTerms"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp" />
@@ -102,23 +102,24 @@
 
     <TextView
         android:id="@+id/textViewSignInPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:text="@string/account_prompt2"
-        android:textColor="#FFFFFF"
         android:layout_below="@id/buttonSignUp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/buttonSignUp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/account_prompt2"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/buttonSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
-        android:background="#B027A2"
-        android:textColor="#FFFFFF"
         android:layout_below="@id/textViewSignInPrompt"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="#B027A2"
+        android:text="@string/sign_in"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

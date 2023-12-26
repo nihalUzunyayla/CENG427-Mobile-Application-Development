@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".ui.home.HomeFragment">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/background"
-        android:scaleType="centerCrop" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_home"
@@ -30,8 +34,8 @@
 
     <TextView
         android:id="@+id/text_home2"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
+        android:layout_width="219dp"
+        android:layout_height="37dp"
         android:text="@string/author"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -39,16 +43,17 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <Button
         android:id="@+id/buttonDonateNow"
-        android:layout_width="227dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="628dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="384dp"
         android:paddingStart="20dp"
         android:paddingTop="10dp"
         android:paddingEnd="20dp"
@@ -57,8 +62,10 @@
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:background="#B027A2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

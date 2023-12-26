@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Paw Rescue</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Main Menu</string>
+    <string name="title_notifications">Settings</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="title">PAW RESCUE</string>
@@ -22,5 +22,11 @@
     <string name="quote">When I look into the eyes of an animal I do not see an animal. I see a living being. I see a friend. I feel a soul.</string>
     <string name="author">A. D. Williams</string>
     <string name="donate_btn">DONATE NOW</string>
+    <string name="donation">Donation</string>
+    <string name="donation_title">MAKE DONATION</string>
+    <string name="donation_amount_hint">Donation Amount</string>
+    <string name="donation_description">Enter the donation amount:</string>
+    <string name="credit_card">Enter the card number:</string>
+    <string name="card_hint">Card Number</string>
 
 </resources>
