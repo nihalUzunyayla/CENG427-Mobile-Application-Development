@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+public class MainMenuFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 
@@ -24,7 +24,7 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.textViewMainMenu;
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
