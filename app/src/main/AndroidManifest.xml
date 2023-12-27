@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PawRescue"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AddPetActivity"
+            android:exported="false"
+            android:label="@string/addPet" />
         <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
@@ -20,36 +23,29 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- SignInActivity, SignUpActivity'den sonra açılacak ekran -->
+        </activity> <!-- SignInActivity, SignUpActivity'den sonra açılacak ekran -->
         <activity
             android:name=".SignInActivity"
             android:label="@string/sign_in"
-            android:parentActivityName=".SignUpActivity">
-        </activity>
-
-        <!-- MainActivity, SignInActivity'den sonra açılacak ekran -->
+            android:parentActivityName=".SignUpActivity" /> <!-- MainActivity, SignInActivity'den sonra açılacak ekran -->
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
-            android:parentActivityName=".SignInActivity"
-            android:exported="true">
+            android:parentActivityName=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- DonationActivity, Donate Now butonuna tıklandığında açılacak ekran -->
+        </activity> <!-- DonationActivity, Donate Now butonuna tıklandığında açılacak ekran -->
         <activity
             android:name=".DonationActivity"
             android:label="@string/donation"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

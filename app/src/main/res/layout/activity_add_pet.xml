@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/donation_activity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPetActivity">
+
+    <TextView
+        android:id="@+id/addPetTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addPet_title"
+        android:textColor="#B983C3"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCenter"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:background="@drawable/edit_text_border"
+        android:scaleType="centerCrop"
+        android:src="@drawable/camera"
+        app:layout_constraintTop_toBottomOf="@id/addPetTextTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+
+    <EditText
+        android:id="@+id/editTextPetName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_pet_hint"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPetType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/type_hint"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPetAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/age_hint"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPetGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/gender_hint"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetAge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPetState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/state_hint"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetGender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/buttonAddPet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/addPet_btn2"
+        android:textStyle="bold"
+        android:background="#B027A2"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetState"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
