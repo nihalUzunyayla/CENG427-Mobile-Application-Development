@@ -28,5 +28,7 @@
     <string name="donation_description">Enter the donation amount:</string>
     <string name="credit_card">Enter the card number:</string>
     <string name="card_hint">Card Number</string>
+    <string name="account_already_exists">This account already exists, please Sign In</string>
+
 
 </resources>

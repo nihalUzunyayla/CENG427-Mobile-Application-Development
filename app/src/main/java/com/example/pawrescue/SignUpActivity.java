@@ -17,7 +17,7 @@ public class SignUpActivity extends AppCompatActivity {
     private CheckBox checkBoxTerms, checkBoxRememberMe;
     private Button buttonSignUp, buttonSignIn;
     private TextView textViewSignInPrompt;
-    private DatabaseHelper databaseHelper;
+    private UserDB userDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
         textViewSignInPrompt = (TextView) findViewById(R.id.textViewSignInPrompt);
         buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
-        databaseHelper = new DatabaseHelper(this);
+        userDB = new UserDB(this);
 
         // "SIGN UP" butonuna tıklanınca
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+
     private void signUp() {
         // Kullanıcı bilgilerini al
         String username = editTextUsername.getText().toString().trim();
@@ -71,13 +72,16 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (!checkBoxTerms.isChecked()) {
             // Şartları kabul etmemişse kullanıcıyı uyar
             Toast.makeText(this, getString(R.string.accept_term_condition), Toast.LENGTH_SHORT).show();
-        } else {
+        } else if (userDB.checkUser(username, password)) {
+            // Kullanıcı zaten kayıtlıysa kullanıcıyı uyar
+            Toast.makeText(this, getString(R.string.account_already_exists), Toast.LENGTH_SHORT).show();
+        }else {
             // Veritabanına kullanıcıyı ekleyin
             User user = new User();
             user.setUsername(username);
             user.setEmail(email);
             user.setPassword(password);
-            databaseHelper.addUser(user);
+            userDB.addUser(user);
 
             // Kullanıcıyı giriş sayfasına yönlendir
             startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
