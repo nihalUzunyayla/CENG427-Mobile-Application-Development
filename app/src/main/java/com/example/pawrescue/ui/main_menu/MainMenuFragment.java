@@ -1,15 +1,20 @@
 package com.example.pawrescue.ui.main_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pawrescue.AddPetActivity;
+import com.example.pawrescue.DonationActivity;
+import com.example.pawrescue.R;
 import com.example.pawrescue.databinding.FragmentMainMenuBinding;
 
 public class MainMenuFragment extends Fragment {
@@ -26,6 +31,13 @@ public class MainMenuFragment extends Fragment {
 
         final TextView textView = binding.textViewMainMenu;
         mainMenuViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        Button addPetButton = root.findViewById(R.id.buttonAddPet);
+        addPetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), AddPetActivity.class));
+            }
+        });
         return root;
     }
 
