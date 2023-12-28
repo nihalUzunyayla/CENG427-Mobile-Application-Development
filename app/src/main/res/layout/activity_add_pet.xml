@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/donation_activity"
+    android:id="@+id/activity_add_pet"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,19 +19,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="25dp" />
 
-    <ImageButton
-        android:id="@+id/imageButtonCenter"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+    <ImageView
+        android:id="@+id/imageViewCenter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:background="@drawable/edit_text_border"
         android:scaleType="centerCrop"
-        android:src="@drawable/camera"
         app:layout_constraintTop_toBottomOf="@id/addPetTextTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/camera" />
 
 
     <EditText
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/name_pet_hint"
         android:background="@drawable/edit_text_border"
-        app:layout_constraintTop_toBottomOf="@id/imageButtonCenter"
+        app:layout_constraintTop_toBottomOf="@id/imageViewCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"

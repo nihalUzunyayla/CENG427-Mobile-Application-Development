@@ -31,11 +31,20 @@ public class MainMenuFragment extends Fragment {
 
         final TextView textView = binding.textViewMainMenu;
         mainMenuViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         Button addPetButton = root.findViewById(R.id.buttonAddPet);
         addPetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), AddPetActivity.class));
+            }
+        });
+
+        Button btn_donate = root.findViewById(R.id.btn_donate);
+        btn_donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), DonationActivity.class));
             }
         });
         return root;

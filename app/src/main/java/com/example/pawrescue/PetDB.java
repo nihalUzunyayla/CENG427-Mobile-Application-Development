@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PetDB extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -144,6 +146,26 @@ public class PetDB extends SQLiteOpenHelper {
         return id;
     }
 
+    public List<Pet> displayAllPets() {
+        List<Pet> petList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_PETS, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Pet pet = cursorToPet(cursor);
+                petList.add(pet);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return petList;
+    }
+
+
     private byte[] convertBitmapToByteArray(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -155,5 +177,50 @@ public class PetDB extends SQLiteOpenHelper {
             return null;
         }
         return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    //terminale yazdır
+    public void writeAllPets() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_PETS, new String[]{KEY_ID,
+                        KEY_NAME, KEY_TYPE, KEY_AGE, KEY_GENDER, KEY_PHOTO, KEY_STATE},
+                null, null, null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                int idIndex = cursor.getColumnIndex(KEY_ID);
+                int nameIndex = cursor.getColumnIndex(KEY_NAME);
+                int typeIndex = cursor.getColumnIndex(KEY_TYPE);
+                int ageIndex = cursor.getColumnIndex(KEY_AGE);
+                int genderIndex = cursor.getColumnIndex(KEY_GENDER);
+                int photoIndex = cursor.getColumnIndex(KEY_PHOTO);
+                int stateIndex = cursor.getColumnIndex(KEY_STATE);
+
+                if (idIndex != -1 && nameIndex != -1 && typeIndex != -1 && ageIndex != -1 &&
+                        genderIndex != -1 && photoIndex != -1 && stateIndex != -1) {
+
+                    int id = cursor.getInt(idIndex);
+                    String name = cursor.getString(nameIndex);
+                    String type = cursor.getString(typeIndex);
+                    int age = cursor.getInt(ageIndex);
+                    String gender = cursor.getString(genderIndex);
+                    byte[] photoBytes = cursor.getBlob(photoIndex);
+                    Bitmap photoBitmap = convertByteArrayToBitmap(photoBytes);
+                    String state = cursor.getString(stateIndex);
+
+                    // Print the pet information
+                    System.out.println("Pet ID: " + id);
+                    System.out.println("Name: " + name);
+                    System.out.println("Type: " + type);
+                    System.out.println("Age: " + age);
+                    System.out.println("Gender: " + gender);
+                    System.out.println("State: " + state);
+
+                }
+            }
+
+            cursor.close();
+            db.close();
+        }
     }
 }

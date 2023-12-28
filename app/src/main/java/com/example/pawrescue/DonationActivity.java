@@ -6,7 +6,6 @@ import android.view.Menu;
 import com.example.pawrescue.databinding.ActivityMainBinding;
 
 public class DonationActivity extends AppCompatActivity {
-
     private ActivityMainBinding binding;
     private Menu menu;
     @Override
@@ -20,4 +19,5 @@ public class DonationActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
         return true;
     }
+
 }

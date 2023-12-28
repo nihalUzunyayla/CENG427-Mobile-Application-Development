@@ -8,7 +8,7 @@ public class Pet {
     private int age;
     private String gender;
     private Bitmap photoBitmap;
-    private String state; // New variable
+    private String state;
 
     public Pet(String name, String type, int age, String gender, Bitmap photoBitmap, String state) {
         this.name = name;

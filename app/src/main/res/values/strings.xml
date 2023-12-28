@@ -38,5 +38,6 @@
     <string name="age_hint">Age</string>
     <string name="gender_hint">Gender</string>
     <string name="state_hint">State</string>
+    <string name="menu">MAIN MENU</string>
 
 </resources>
