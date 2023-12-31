@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.AddPetActivity;
 import com.example.pawrescue.DonationActivity;
+import com.example.pawrescue.EmergencyActivity;
 import com.example.pawrescue.R;
 import com.example.pawrescue.databinding.FragmentMainMenuBinding;
 
@@ -32,7 +34,7 @@ public class MainMenuFragment extends Fragment {
         final TextView textView = binding.textViewMainMenu;
         mainMenuViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        Button addPetButton = root.findViewById(R.id.buttonAddPet);
+        AppCompatButton addPetButton = (AppCompatButton) root.findViewById(R.id.buttonAddPet);
         addPetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,11 +42,11 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
-        Button btn_donate = root.findViewById(R.id.btn_donate);
-        btn_donate.setOnClickListener(new View.OnClickListener() {
+        AppCompatButton btn_emergency = (AppCompatButton) root.findViewById(R.id.btn_emergency);
+        btn_emergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), DonationActivity.class));
+                startActivity(new Intent(getActivity(), EmergencyActivity.class));
             }
         });
         return root;

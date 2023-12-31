@@ -11,75 +11,73 @@
         android:id="@+id/textViewMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/menu"
         android:textColor="#B983C3"
-        android:textSize="30sp"
+        android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@id/buttonAddPet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonAddPet"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/btn_background"
         android:text="@string/addPet_btn1"
+        android:textColor="#806285"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_background"
         android:text="Button 2"
+        android:textColor="#806285"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:text="Button 3"
+        android:background="@drawable/btn_background"
+        android:text="@string/lost"
+        android:textColor="#806285"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonAddPet" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_emergency"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:text="Button 4"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_background"
+        android:text="@string/emergency_call"
+        android:textColor="#806285"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:text="Button 5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button3" />
-
-    <Button
-        android:id="@+id/btn_donate"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/donation_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

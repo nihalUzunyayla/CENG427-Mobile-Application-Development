@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:text="@string/addPet_title"
         android:textColor="#B983C3"
-        android:textSize="32sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="20dp" />
 
     <ImageView
         android:id="@+id/imageViewCenter"
@@ -41,6 +42,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/name_pet_hint"
         android:background="@drawable/edit_text_border"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/imageViewCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +57,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/type_hint"
         android:background="@drawable/edit_text_border"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/editTextPetName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +72,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/age_hint"
         android:background="@drawable/edit_text_border"
+        android:inputType="numberDecimal"
         app:layout_constraintTop_toBottomOf="@id/editTextPetType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +87,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/gender_hint"
         android:background="@drawable/edit_text_border"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/editTextPetAge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +102,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/state_hint"
         android:background="@drawable/edit_text_border"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/editTextPetGender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,17 +113,29 @@
 
     <Button
         android:id="@+id/buttonAddPet"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/addPet_btn2"
-        android:textStyle="bold"
-        android:background="#B027A2"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/editTextPetState"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_width="323dp"
+        android:layout_height="43dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#B027A2"
+        android:text="@string/addPet_btn2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPetState" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
