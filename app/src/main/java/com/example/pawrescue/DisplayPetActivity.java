@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayPetActivity extends AppCompatActivity {
+public class DisplayPetActivity extends AppCompatActivity implements PetModalDetails.PetDBListener{
 
     private ArrayList<Pet> petList;
     private DisplayPetAdapter petAdapter;
@@ -112,7 +112,7 @@ public class DisplayPetActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
     private void showItemDetailsModal(int position) {
-        PetModalDetails petDetailsDialog = new PetModalDetails(this);
+        PetModalDetails petDetailsDialog = new PetModalDetails(this, petList.get(position), new PetDB(this), position);
         petDetailsDialog.initialize();
         Pet selectedPet = petList.get(position);
         petDetailsDialog.setPetDetails(
@@ -124,8 +124,15 @@ public class DisplayPetActivity extends AppCompatActivity {
                 selectedPet.getPhotoBitmap()
         );
 
+        petDetailsDialog.setPetDBListener(this);
         petDetailsDialog.show();
 
+    }
+
+    @Override
+    public void onPetDeleted(int position) {
+        petList.remove(position);
+        petAdapter.notifyItemRemoved(position);
     }
    private void getPetData() {
        try {
@@ -137,7 +144,7 @@ public class DisplayPetActivity extends AppCompatActivity {
                selection = "type=?";
                selectionArgsList.add(selectedSpecies);
            }
-           if (!selectedAge.equals("1-20")) {
+           if (!selectedAge.equals("0-20")) {
                String[] ageRange = selectedAge.split("-");
                int startAge = Integer.parseInt(ageRange[0]);
                int endAge = Integer.parseInt(ageRange[1]);

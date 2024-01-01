@@ -136,7 +136,7 @@ public class PetDB extends SQLiteOpenHelper {
         db.close();
     }
 
-    private int getPetId(Pet pet) {
+    public int getPetId(Pet pet) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_PETS, new String[]{KEY_ID},
                 KEY_NAME + "=? AND " + KEY_TYPE + "=? AND " + KEY_AGE + "=? AND " +

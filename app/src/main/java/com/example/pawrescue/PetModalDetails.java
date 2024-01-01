@@ -16,11 +16,16 @@ public class PetModalDetails extends Dialog {
 
     private ImageView modalImageViewPet;
     private TextView modalTextViewName,modalTextViewType,modalTextViewAge,modalTextViewGender,modalTextViewState;
-
     private Button btnAdopt;
-    public PetModalDetails(@NonNull Context context) {
+    private PetDB petDB;
+    Pet pet;
+    private int position; // Add a new field to store the position
 
+    public PetModalDetails(@NonNull Context context, Pet pet, PetDB petDB, int position) {
         super(context);
+        this.pet = pet;
+        this.petDB = petDB;
+        this.position = position; // Initialize the position
     }
 
     public void initialize() {
@@ -40,9 +45,17 @@ public class PetModalDetails extends Dialog {
             @Override
             public void onClick(View v) {
                 dismiss();
+                deletePetFromDatabase();
                 showAdoptionConfirmationDialog();
             }
         });
+    }
+    private void deletePetFromDatabase() {
+        int petId = petDB.getPetId(pet);
+        petDB.deletePet(petId);
+        if (petDBListener != null) {
+            petDBListener.onPetDeleted(position);
+        }
     }
     private void showAdoptionConfirmationDialog() {
         View customView = getLayoutInflater().inflate(R.layout.custom_alert_dialog, null);
@@ -72,5 +85,15 @@ public class PetModalDetails extends Dialog {
             modalTextViewState.setText(String.valueOf(state));
             modalImageViewPet.setImageBitmap(image);
 
+    }
+
+    public interface PetDBListener {
+        void onPetDeleted(int position);
+    }
+
+    private PetDBListener petDBListener;
+
+    public void setPetDBListener(PetDBListener listener) {
+        this.petDBListener = listener;
     }
 }
