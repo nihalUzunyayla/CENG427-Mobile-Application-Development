@@ -59,7 +59,7 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
-        Button displayPetButton = root.findViewById(R.id.buttonDisplayPet);
+        AppCompatButton displayPetButton = root.findViewById(R.id.buttonDisplayPet);
         displayPetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
