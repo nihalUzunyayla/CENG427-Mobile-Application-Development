@@ -129,7 +129,7 @@ public class DisplayPetActivity extends AppCompatActivity {
                selection = "type=?";
                selectionArgsList.add(selectedSpecies);
            }
-           if (!selectedAge.equals("1-20")) {
+           if (!selectedAge.equals("0-20")) {
                String[] ageRange = selectedAge.split("-");
                int startAge = Integer.parseInt(ageRange[0]);
                int endAge = Integer.parseInt(ageRange[1]);
