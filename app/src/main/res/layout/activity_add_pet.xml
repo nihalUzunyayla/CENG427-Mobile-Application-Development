@@ -42,6 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_pet_hint"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_border"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/imageViewCenter"
@@ -52,13 +54,13 @@
         android:layout_marginRight="20dp"
         android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/editTextPetType"
+    <Spinner
+        android:id="@+id/spinnerPetType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/type_hint"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_border"
-        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/editTextPetName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,14 +69,14 @@
         android:layout_marginRight="20dp"
         android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/editTextPetAge"
+    <Spinner
+        android:id="@+id/spinnerPetAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/age_hint"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_border"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@id/editTextPetType"
+        app:layout_constraintTop_toBottomOf="@id/spinnerPetType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -82,14 +84,14 @@
         android:layout_marginRight="20dp"
         android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/editTextPetGender"
+    <Spinner
+        android:id="@+id/spinnerPetGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/gender_hint"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_border"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/editTextPetAge"
+        app:layout_constraintTop_toBottomOf="@id/spinnerPetAge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -102,9 +104,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/state_hint"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_border"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/editTextPetGender"
+        app:layout_constraintTop_toBottomOf="@id/spinnerPetGender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"

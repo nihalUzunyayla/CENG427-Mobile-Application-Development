@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -103,6 +105,12 @@ public class DisplayPetActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mif = getMenuInflater();
+        mif.inflate(R.menu.bottom_nav_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
     private void showItemDetailsModal(int position) {
         PetModalDetails petDetailsDialog = new PetModalDetails(this);
         petDetailsDialog.initialize();

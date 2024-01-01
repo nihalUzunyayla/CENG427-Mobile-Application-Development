@@ -50,7 +50,7 @@
     <string name="gender_hint">Gender</string>
     <string name="state_hint">State</string>
     <string name="menu">MAIN MENU</string>
-    <string name="displayPet_btn">ADOPT PET</string>
+    <string name="displayPet_btn">ADOPT\nPET</string>
     <string name="adoptPet_title">Adopt Pet</string>
     <string name="select_type">Select Type:</string>
     <string name="select_age">Select Age:</string>
@@ -58,6 +58,7 @@
     <string name="All">All</string>
     <string name="Dog">Dog</string>
     <string name="Cat">Cat</string>
+    <string name="Select">Select</string>
     <string name="Female">Female</string>
     <string name="Male">Male</string>
     <string name="alertDiagramBoldText">Thank you for adopting one of the cute paws, we are waiting for you to rescue the paw as soon as possible.</string>
@@ -80,6 +81,7 @@
     <string name="valid_cvv">Please enter a valid CVV format (3 digits)</string>
     <string name="valid_phone">Please enter a valid phone number format (10 digits)</string>
     <string name="valid_card_number">Please enter a valid card number format (16 digits)</string>
+    <string name="valid_state">Please enter a non-digit input</string>
     <string name="time">Remaining Time: </string>
     <string name="time_up">Time is up!</string>
     <string name="approve">Approve</string>
