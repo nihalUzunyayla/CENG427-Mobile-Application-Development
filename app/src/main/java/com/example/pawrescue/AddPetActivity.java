@@ -43,12 +43,9 @@ public class AddPetActivity extends AppCompatActivity {
         petDB.writeAllPets();
 
         imageViewCenter = findViewById(R.id.imageViewCenter);
-
-        // ImageView click to initiate the photo-taking process
         imageViewCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check and request permissions when imageViewCenter is clicked
                 checkAndRequestPermissions();
             }
         });
@@ -63,9 +60,8 @@ public class AddPetActivity extends AppCompatActivity {
         buttonAddPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if all fields are filled
                 if (checkFieldsNotEmpty(editTextPetName, editTextPetType, editTextPetAge, editTextPetGender, editTextPetState)) {
-                    // Check if an image is selected
+
                     if (selectedImage != null) {
                         addPetToDatabase(
                                 editTextPetName.getText().toString(),

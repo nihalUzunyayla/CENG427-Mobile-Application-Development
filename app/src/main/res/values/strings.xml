@@ -72,5 +72,13 @@
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
     <string name="lost">LOST AND\nFOUND\nPLATFORM</string>
+    <string name="fact">GIVE DAILY\nFACTS</string>
+    <string name="daily_fact">DAILY FACTS</string>
+    <string name="give_fact">GIVE FACT</string>
+    <string name="dog">DOG:\u0020</string>
+    <string name="cat">CAT:\u0020</string>
+    <string name="valid_password">Please enter a valid password format (4 digits)</string>
+    <string name="connection">Please check your network connection!</string>
+
 
 </resources>

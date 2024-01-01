@@ -24,7 +24,6 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        // Gerekli bileşenleri bağlama
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSignIn = findViewById(R.id.buttonSignIn);
@@ -40,7 +39,6 @@ public class SignInActivity extends AppCompatActivity {
             editTextPassword.setText(preferencesHelper.getSavedPassword());
         }
 
-        // "SIGN IN" butonuna tıklanınca
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,11 +55,11 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void signIn() {
-        // Kullanıcı adı ve şifreyi al
+
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        // Kullanıcı adı ve şifreyi kontrol et
+
         if (userDB.checkUser(username, password)) {
             // Remember me seçeneği işaretli ise bilgileri kaydet
             if (checkBoxRememberMe.isChecked()) {
@@ -75,14 +73,13 @@ public class SignInActivity extends AppCompatActivity {
             startActivity(new Intent(SignInActivity.this, MainActivity.class));
             finish(); // Bu aktiviteyi kapat
         } else {
-            // Giriş başarısızsa kullanıcıyı uyar
+
             Toast.makeText(this, getString(R.string.no_account), Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private void signUp() {
-        // "SIGN UP" sayfasına yönlendir
         startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
     }
 }
