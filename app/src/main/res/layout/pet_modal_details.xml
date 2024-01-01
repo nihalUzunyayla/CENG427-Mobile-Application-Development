@@ -1,0 +1,125 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pet_modal">
+
+    <TextView
+        android:id="@+id/modalTextViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="#B983C3"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/modalImageViewPet"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@id/modalTextViewName"
+        android:scaleType="fitCenter" />
+
+
+    <TextView
+        android:id="@+id/modalTextViewTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalImageViewPet"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:text="@string/type"/>
+
+    <TextView
+        android:id="@+id/modalTextViewType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalImageViewPet"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/modalTextViewTypeText"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/modalTextViewAgeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewTypeText"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="7dp"
+        android:text="@string/age"/>
+
+
+    <TextView
+        android:id="@+id/modalTextViewAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewType"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/modalTextViewAgeText"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/modalTextViewGenderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewAgeText"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="7dp"
+        android:text="@string/gender"/>
+
+    <TextView
+        android:id="@+id/modalTextViewGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewAge"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/modalTextViewGenderText"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/modalTextViewStateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewGenderText"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="7dp"
+        android:text="@string/state"/>
+
+    <TextView
+        android:id="@+id/modalTextViewState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/modalTextViewGender"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/modalTextViewStateText"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btn_adopt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adoptPet_title"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@color/item_text_purple"
+        android:textStyle="bold"
+        android:layout_below="@id/modalTextViewState"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>

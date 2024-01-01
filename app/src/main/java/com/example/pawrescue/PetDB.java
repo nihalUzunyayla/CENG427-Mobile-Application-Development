@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,10 +72,10 @@ public class PetDB extends SQLiteOpenHelper {
         return pet;
     }
 
-    private Pet cursorToPet(Cursor cursor) {
+    public Pet cursorToPet(Cursor cursor) {
         Pet pet = null;
-
-        if (cursor != null && cursor.getCount() > 0) {
+        try{
+        if (cursor != null && cursor.moveToFirst()) {
             int idIndex = cursor.getColumnIndex(KEY_ID);
             int nameIndex = cursor.getColumnIndex(KEY_NAME);
             int typeIndex = cursor.getColumnIndex(KEY_TYPE);
@@ -84,7 +86,6 @@ public class PetDB extends SQLiteOpenHelper {
 
             if (idIndex != -1 && nameIndex != -1 && typeIndex != -1 && ageIndex != -1 &&
                     genderIndex != -1 && photoIndex != -1 && stateIndex != -1) {
-                cursor.moveToFirst();
 
                 int id = cursor.getInt(idIndex);
                 String name = cursor.getString(nameIndex);
@@ -92,15 +93,26 @@ public class PetDB extends SQLiteOpenHelper {
                 int age = cursor.getInt(ageIndex);
                 String gender = cursor.getString(genderIndex);
                 byte[] photoBytes = cursor.getBlob(photoIndex);
+
+                // Add these log statements
+                Log.d("PetDB", "Photo bytes length: " + (photoBytes != null ? photoBytes.length : 0));
+
                 Bitmap photoBitmap = convertByteArrayToBitmap(photoBytes);
+
+                Log.d("PetDB", "Photo bitmap: " + (photoBitmap != null ? "Not null" : "Null"));
+
                 String state = cursor.getString(stateIndex);
 
                 pet = new Pet(name, type, age, gender, photoBitmap, state);
             }
         }
-
-        return pet;
+    }catch (Exception e) {
+        e.printStackTrace();
+        Log.e("PetDB", "Error in cursorToPet: " + e.getMessage());}
+    return pet;
     }
+
+
 
     public int updatePet(Pet pet) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -167,9 +179,15 @@ public class PetDB extends SQLiteOpenHelper {
 
 
     private byte[] convertBitmapToByteArray(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        return stream.toByteArray();
+        try {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            return stream.toByteArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("PetDB", "Error in convertBitmapToByteArray: " + e.getMessage());
+            return null;
+        }
     }
 
     private Bitmap convertByteArrayToBitmap(byte[] byteArray) {

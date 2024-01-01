@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.AddPetActivity;
+import com.example.pawrescue.DisplayPetActivity;
 import com.example.pawrescue.PetFactsActivity;
 import com.example.pawrescue.DonationActivity;
 import com.example.pawrescue.EmergencyActivity;
@@ -55,6 +56,14 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), EmergencyActivity.class));
+            }
+        });
+
+        Button displayPetButton = root.findViewById(R.id.buttonDisplayPet);
+        displayPetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), DisplayPetActivity.class));
             }
         });
 
