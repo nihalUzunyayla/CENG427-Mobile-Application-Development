@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,10 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PawRescue"
         tools:targetApi="31">
-        <activity
-            android:name=".AddPetActivity"
-            android:exported="false"
-            android:label="@string/addPet" />
+
         <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
@@ -31,6 +41,7 @@
             android:name=".SignInActivity"
             android:label="@string/sign_in"
             android:parentActivityName=".SignUpActivity" /> <!-- MainActivity, SignInActivity'den sonra açılacak ekran -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -42,6 +53,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- DonationActivity, Donate Now butonuna tıklandığında açılacak ekran -->
+
         <activity
             android:name=".DonationActivity"
             android:label="@string/donation"
@@ -49,6 +61,17 @@
         <activity android:name=".DisplayPetActivity"
             android:label="@string/adoptPet_title"
             android:exported="false">
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".AddPetActivity"
+            android:exported="false"
+            android:label="@string/addPet" />
+
+        <activity
+            android:name=".EmergencyActivity"
+            android:exported="false"
+            android:label="@string/emergency_call">
         </activity>
     </application>
 

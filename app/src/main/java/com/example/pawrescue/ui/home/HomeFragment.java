@@ -6,13 +6,18 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.DonationActivity;
+import com.example.pawrescue.EmergencyActivity;
 import com.example.pawrescue.R;
 import com.example.pawrescue.databinding.FragmentHomeBinding;
 
@@ -32,15 +37,22 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        Button donateButton = root.findViewById(R.id.buttonDonateNow);
-        donateButton.setOnClickListener(new View.OnClickListener() {
+        ImageView imageViewDonateNow = root.findViewById(R.id.imageViewDonateNow);
+        imageViewDonateNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Donate Now butonuna basıldığında DonateActivity'yi başlat
+                // ImageView'a tıklandığında DonationActivity'yi başlat
                 startActivity(new Intent(getActivity(), DonationActivity.class));
             }
         });
 
+        if (getClass() == HomeFragment.class) {
+            // ActionBar'ı kaldır
+            ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.hide();
+            }
+        }
         return root;
     }
 
@@ -48,6 +60,17 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // ActionBar'ı göster
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.show();
+        }
     }
 
 }
