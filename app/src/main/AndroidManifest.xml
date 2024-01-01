@@ -60,7 +60,7 @@
             android:parentActivityName=".MainActivity" ></activity>
         <activity android:name=".DisplayPetActivity"
             android:label="@string/adoptPet_title"
-            android:exported="false">
+            android:exported="false"
             android:parentActivityName=".MainActivity" />
 
         <activity
