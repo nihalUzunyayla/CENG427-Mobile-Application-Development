@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.AddPetActivity;
 import com.example.pawrescue.DisplayPetActivity;
+import com.example.pawrescue.PetFactsActivity;
 import com.example.pawrescue.DonationActivity;
 import com.example.pawrescue.EmergencyActivity;
 import com.example.pawrescue.R;
@@ -43,6 +43,14 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
+        AppCompatButton btn_donate = (AppCompatButton) root.findViewById(R.id.btn_donate);
+        btn_donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), DonationActivity.class));
+            }
+        });
+
         AppCompatButton btn_emergency = (AppCompatButton) root.findViewById(R.id.btn_emergency);
         btn_emergency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,13 +59,22 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
-        Button displayPetButton = root.findViewById(R.id.buttonDisplayPet);
+        AppCompatButton displayPetButton = root.findViewById(R.id.buttonDisplayPet);
         displayPetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), DisplayPetActivity.class));
             }
         });
+
+        AppCompatButton btn_fact = (AppCompatButton) root.findViewById(R.id.btn_fact);
+        btn_fact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), PetFactsActivity.class));
+            }
+        });
+
         return root;
     }
 
