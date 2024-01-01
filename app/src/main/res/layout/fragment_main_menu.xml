@@ -33,12 +33,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonDisplayPet"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
-        android:text="Button 2"
+        android:text="@string/displayPet_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +60,7 @@
         android:layout_marginEnd="40dp"
         android:text="Button 4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
+        app:layout_constraintTop_toBottomOf="@id/buttonDisplayPet" />
 
     <Button
         android:id="@+id/button5"
@@ -78,7 +78,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="40dp"
-        android:text="@string/donation_title"
+        android:text="BUTTON 6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button4" />
 

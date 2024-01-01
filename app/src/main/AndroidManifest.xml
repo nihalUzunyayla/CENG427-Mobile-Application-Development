@@ -45,7 +45,11 @@
         <activity
             android:name=".DonationActivity"
             android:label="@string/donation"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity" ></activity>
+        <activity android:name=".DisplayPetActivity"
+            android:label="@string/adoptPet_title"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
