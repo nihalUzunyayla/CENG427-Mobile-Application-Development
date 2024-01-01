@@ -58,7 +58,7 @@ public class PetModalDetails extends Dialog {
         alertBoldTextView.setText(boldText);
         alertNormalTextView.setText(normalText);
 
-        builder.setPositiveButton(getContext().getString(R.string.OK), null);
+        builder.setPositiveButton(getContext().getString(R.string.ok), null);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
