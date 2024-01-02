@@ -2,6 +2,7 @@ package com.example.pawrescue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -9,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pawrescue.ui.home.HomeFragment;
+import com.example.pawrescue.ui.settings.SettingsFragment;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class SignInActivity extends AppCompatActivity {
     private CheckBox checkBoxRememberMe;
     private UserDB userDB;
     private PreferencesHelper preferencesHelper;
+    public static User userProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
 
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-
+        userProfile = userDB.getUser(username);
 
         if (userDB.checkUser(username, password)) {
             // Remember me seçeneği işaretli ise bilgileri kaydet
@@ -71,6 +76,7 @@ public class SignInActivity extends AppCompatActivity {
 
             // Giriş başarılıysa, Main activity'e yönlendir
             startActivity(new Intent(SignInActivity.this, MainActivity.class));
+
             finish(); // Bu aktiviteyi kapat
         } else {
 

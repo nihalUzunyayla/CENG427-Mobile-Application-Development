@@ -5,6 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 
 public class UserDB extends SQLiteOpenHelper {
 
@@ -16,6 +21,8 @@ public class UserDB extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_PHOTO = "photo";
+
     private static final String COLUMN_CREDIT_CARD_NUMBER = "credit_card_number";
     private static final String COLUMN_EXPIRATION_DATE = "expiration_date";
     private static final String COLUMN_CVV = "cvv";
@@ -31,6 +38,7 @@ public class UserDB extends SQLiteOpenHelper {
                 COLUMN_USERNAME + " TEXT, " +
                 COLUMN_EMAIL + " TEXT, " +
                 COLUMN_PASSWORD + " TEXT, " +
+                COLUMN_PHOTO + " BLOB," +
                 COLUMN_CREDIT_CARD_NUMBER + " TEXT, " +
                 COLUMN_EXPIRATION_DATE + " TEXT, " +
                 COLUMN_CVV + " TEXT)";
@@ -50,6 +58,7 @@ public class UserDB extends SQLiteOpenHelper {
         values.put(COLUMN_USERNAME, user.getUsername());
         values.put(COLUMN_EMAIL, user.getEmail());
         values.put(COLUMN_PASSWORD, user.getPassword());
+        values.put(COLUMN_PHOTO, convertBitmapToByteArray(user.getPhotoBitmap()));
         values.put(COLUMN_CREDIT_CARD_NUMBER, user.getCreditCardNumber());
         values.put(COLUMN_EXPIRATION_DATE, user.getExpirationDate());
         values.put(COLUMN_CVV, user.getCvv());
@@ -61,8 +70,7 @@ public class UserDB extends SQLiteOpenHelper {
 
     public User getUser(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PASSWORD,
-                COLUMN_CREDIT_CARD_NUMBER, COLUMN_EXPIRATION_DATE, COLUMN_CVV};
+        String[] columns = {COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PASSWORD, COLUMN_PHOTO};
         String selection = COLUMN_USERNAME + "=?";
         String[] selectionArgs = {username};
 
@@ -75,9 +83,7 @@ public class UserDB extends SQLiteOpenHelper {
             int usernameIndex = cursor.getColumnIndex(COLUMN_USERNAME);
             int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
             int passwordIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
-            int creditCardNumberIndex = cursor.getColumnIndex(COLUMN_CREDIT_CARD_NUMBER);
-            int expirationDateIndex = cursor.getColumnIndex(COLUMN_EXPIRATION_DATE);
-            int cvvIndex = cursor.getColumnIndex(COLUMN_CVV);
+            int photoIndex = cursor.getColumnIndex(COLUMN_PHOTO);
 
             if (usernameIndex >= 0) {
                 user.setUsername(cursor.getString(usernameIndex));
@@ -91,16 +97,10 @@ public class UserDB extends SQLiteOpenHelper {
                 user.setPassword(cursor.getString(passwordIndex));
             }
 
-            if (creditCardNumberIndex >= 0) {
-                user.setCreditCardNumber(cursor.getString(creditCardNumberIndex));
-            }
-
-            if (expirationDateIndex >= 0) {
-                user.setExpirationDate(cursor.getString(expirationDateIndex));
-            }
-
-            if (cvvIndex >= 0) {
-                user.setCvv(cursor.getString(cvvIndex));
+            if (photoIndex >= 0) {
+                byte[] photoBytes = cursor.getBlob(photoIndex);
+                Bitmap photoBitmap = convertByteArrayToBitmap(photoBytes);
+                user.setPhotoBitmap(photoBitmap);
             }
 
             cursor.close();
@@ -108,7 +108,6 @@ public class UserDB extends SQLiteOpenHelper {
         db.close();
         return user;
     }
-
 
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -125,14 +124,65 @@ public class UserDB extends SQLiteOpenHelper {
 
         return count > 0;
     }
+    public int getUserId(User user) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_ID},
+                COLUMN_USERNAME + "=? AND " + COLUMN_EMAIL + "=? AND " + COLUMN_PASSWORD + "=?",
+                new String[]{user.getUsername(), user.getEmail(), user.getPassword()}, null, null, null, null);
 
-    public int deleteUser(String username) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String whereClause = COLUMN_USERNAME + "=?";
-        String[] whereArgs = {username};
+        int id = -1;
+        if (cursor != null && cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COLUMN_ID);
+            id = cursor.getInt(idIndex);
+        }
 
-        int result = db.delete(TABLE_NAME, whereClause, whereArgs);
+        if (cursor != null) {
+            cursor.close();
+        }
+
         db.close();
-        return result;
+
+        return id;
     }
+
+    public int updateUser(User user) {
+        try (SQLiteDatabase db = this.getWritableDatabase()) { // Veritabanını aç
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_USERNAME, user.getUsername());
+            values.put(COLUMN_EMAIL, user.getEmail());
+            values.put(COLUMN_PASSWORD, user.getPassword());
+            values.put(COLUMN_PHOTO, convertBitmapToByteArray(user.getPhotoBitmap()));
+
+            int userId = getUserId(user);
+
+            if (userId != -1) {
+                return db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
+            } else {
+                return -1; // Kullanıcı bulunamadı
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1; // Hata durumu
+        }
+    }
+
+
+    private byte[] convertBitmapToByteArray(Bitmap bitmap) {
+        try {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            return stream.toByteArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private Bitmap convertByteArrayToBitmap(byte[] byteArray) {
+        if (byteArray == null) {
+            return null;
+        }
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
 }

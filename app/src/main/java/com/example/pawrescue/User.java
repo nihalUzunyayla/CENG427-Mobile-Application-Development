@@ -1,8 +1,12 @@
 package com.example.pawrescue;
+
+import android.graphics.Bitmap;
+
 public class User {
     private String username;
     private String email;
     private String password;
+    private Bitmap photoBitmap;
     private String creditCardNumber;
     private String expirationDate;
     private String cvv;
@@ -21,6 +25,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Bitmap getPhotoBitmap() {
+        return photoBitmap;
+    }
+
+    public void setPhotoBitmap(Bitmap photo) {
+        this.photoBitmap = photo;
     }
 
     public String getPassword() {
