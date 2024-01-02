@@ -105,6 +105,9 @@
     <string name="tab_text_1">LOST</string>
     <string name="tab_text_2">FOUND</string>
     <string name="lost_pet">LOST PET</string>
+    <string name="mail_text">E-mail: </string>
+    <string name="password_text">Password: </string>
+    <string name="name_text">Username: </string>
 
 
 </resources>

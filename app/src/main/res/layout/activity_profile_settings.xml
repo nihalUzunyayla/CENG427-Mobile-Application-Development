@@ -39,7 +39,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="7dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/name_hint"/>
+            android:text="@string/name_text"/>
 
         <TextView
             android:id="@+id/profileTextViewName"
@@ -68,7 +68,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="7dp"
-            android:text="@string/mail_hint"/>
+            android:text="@string/mail_text"/>
 
 
         <TextView
@@ -99,7 +99,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="7dp"
-            android:text="@string/password_hint"/>
+            android:text="@string/password_text"/>
 
         <TextView
             android:id="@+id/profileTextViewPassword"
