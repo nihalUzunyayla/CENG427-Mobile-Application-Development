@@ -26,6 +26,11 @@
         android:theme="@style/Theme.PawRescue"
         tools:targetApi="31">
         <activity
+            android:name=".LostFoundPlatformActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lost_found_platform"
+            android:theme="@style/Theme.PawRescue.NoActionBar" />
+        <activity
             android:name=".PetFactsActivity"
             android:exported="false" />
         <activity
@@ -59,10 +64,11 @@
         <activity
             android:name=".DonationActivity"
             android:label="@string/donation"
-            android:parentActivityName=".MainActivity" ></activity>
-        <activity android:name=".DisplayPetActivity"
-            android:label="@string/adoptPet_title"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DisplayPetActivity"
             android:exported="false"
+            android:label="@string/adoptPet_title"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddPetActivity"

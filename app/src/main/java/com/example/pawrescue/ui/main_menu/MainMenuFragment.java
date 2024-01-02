@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pawrescue.AddPetActivity;
 import com.example.pawrescue.DisplayPetActivity;
+import com.example.pawrescue.LostFoundPlatformActivity;
 import com.example.pawrescue.PetFactsActivity;
 import com.example.pawrescue.DonationActivity;
 import com.example.pawrescue.EmergencyActivity;
@@ -72,6 +73,14 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), PetFactsActivity.class));
+            }
+        });
+
+        AppCompatButton btn_lost = (AppCompatButton) root.findViewById(R.id.btn_lost);
+        btn_lost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), LostFoundPlatformActivity.class));
             }
         });
 

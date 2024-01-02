@@ -87,7 +87,7 @@ public class AddPetActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 String inputText = editable.toString();
-                if (!isValidState(inputText)) {
+                if (!isValidState(inputText) && !inputText.isEmpty()) {
                     editTextPetState.setError(getString(R.string.valid_state));
                 } else {
                     editTextPetState.setError(null);

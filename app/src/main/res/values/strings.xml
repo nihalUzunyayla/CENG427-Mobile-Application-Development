@@ -97,6 +97,10 @@
     <string name="cat">CAT:\u0020</string>
     <string name="valid_password">Please enter a valid password format (4 digits)</string>
     <string name="connection">Please check your network connection!</string>
+    <string name="title_activity_lost_found_platform">LostFoundPlatformActivity</string>
+    <string name="tab_text_1">LOST</string>
+    <string name="tab_text_2">FOUND</string>
+    <string name="lost_pet">LOST PET</string>
 
 
 </resources>
