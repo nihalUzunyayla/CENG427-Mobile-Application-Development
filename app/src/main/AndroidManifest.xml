@@ -26,11 +26,10 @@
         android:theme="@style/Theme.PawRescue"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".ProfileSettingsActivity"
             android:exported="false"
             android:label="Profile Settings" />
-=======
+            <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
             android:label="@string/title_activity_lost_found_platform"
@@ -38,7 +37,6 @@
         <activity
             android:name=".PetFactsActivity"
             android:exported="false" />
->>>>>>> 38f1027baa6d87c96b998d976d1a2427aa5713b0
         <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
