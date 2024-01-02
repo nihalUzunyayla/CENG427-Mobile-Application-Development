@@ -9,13 +9,17 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -24,24 +28,26 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddPetActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 103;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 104;
 
     PetDB petDB = new PetDB(this);
 
     private ImageView imageViewCenter;
     private Bitmap selectedImage;
+    private EditText editTextPetState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        petDB.writeAllPets();
+        //petDB.writeAllPets();
 
         imageViewCenter = findViewById(R.id.imageViewCenter);
         imageViewCenter.setOnClickListener(new View.OnClickListener() {
@@ -51,24 +57,56 @@ public class AddPetActivity extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{getString(R.string.type_hint), getString(R.string.Dog), getString(R.string.Cat)});
+        ArrayAdapter<String> ageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, generateAgeList());
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{getString(R.string.gender_hint), getString(R.string.Female), getString(R.string.Male)});
+
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         EditText editTextPetName = findViewById(R.id.editTextPetName);
-        EditText editTextPetType = findViewById(R.id.editTextPetType);
-        EditText editTextPetAge = findViewById(R.id.editTextPetAge);
-        EditText editTextPetGender = findViewById(R.id.editTextPetGender);
-        EditText editTextPetState = findViewById(R.id.editTextPetState);
+        Spinner spinnerPetType = findViewById(R.id.spinnerPetType);
+        Spinner spinnerPetAge = findViewById(R.id.spinnerPetAge);
+        Spinner spinnerPetGender = findViewById(R.id.spinnerPetGender);
+        editTextPetState = findViewById(R.id.editTextPetState);
+
+        spinnerPetType.setAdapter(typeAdapter);
+        spinnerPetAge.setAdapter(ageAdapter);
+        spinnerPetGender.setAdapter(genderAdapter);
+
+        editTextPetState.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String inputText = editable.toString();
+                if (!isValidState(inputText) && !inputText.isEmpty()) {
+                    editTextPetState.setError(getString(R.string.valid_state));
+                } else {
+                    editTextPetState.setError(null);
+                }
+            }
+        });
 
         Button buttonAddPet = findViewById(R.id.buttonAddPet);
         buttonAddPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkFieldsNotEmpty(editTextPetName, editTextPetType, editTextPetAge, editTextPetGender, editTextPetState)) {
+                if (checkEditFieldsNotEmpty(editTextPetName, editTextPetState) && checkSpinnerFieldsNotEmpty(spinnerPetType, spinnerPetAge, spinnerPetGender) && isValidState(editTextPetState.getText().toString())) {
 
                     if (selectedImage != null) {
                         addPetToDatabase(
                                 editTextPetName.getText().toString(),
-                                editTextPetType.getText().toString(),
-                                Integer.parseInt(editTextPetAge.getText().toString()),
-                                editTextPetGender.getText().toString(),
+                                spinnerPetGender.getSelectedItem().toString(),
+                                Integer.parseInt(spinnerPetAge.getSelectedItem().toString()),
+                                spinnerPetGender.getSelectedItem().toString(),
                                 selectedImage,
                                 editTextPetState.getText().toString()
                         );
@@ -149,9 +187,19 @@ public class AddPetActivity extends AppCompatActivity {
         }
     }
 
-    private boolean checkFieldsNotEmpty(EditText... editTexts) {
+    private boolean checkEditFieldsNotEmpty(EditText... editTexts) {
         for (EditText editText : editTexts) {
             if (editText.getText().toString().trim().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkSpinnerFieldsNotEmpty(Spinner... spinners) {
+        for (Spinner spinner : spinners) {
+            if (spinner.getSelectedItemPosition() == 0) {
+                // Eğer bir seçim yapılmamışsa (ilk öğe seçiliyse), false döndür
                 return false;
             }
         }
@@ -177,15 +225,15 @@ public class AddPetActivity extends AppCompatActivity {
 
     private void clearInputFields() {
         EditText editTextPetName = findViewById(R.id.editTextPetName);
-        EditText editTextPetType = findViewById(R.id.editTextPetType);
-        EditText editTextPetAge = findViewById(R.id.editTextPetAge);
-        EditText editTextPetGender = findViewById(R.id.editTextPetGender);
+        Spinner spinnerPetType = findViewById(R.id.spinnerPetType);
+        Spinner spinnerPetAge = findViewById(R.id.spinnerPetAge);
+        Spinner spinnerPetGender = findViewById(R.id.spinnerPetGender);
         EditText editTextPetState = findViewById(R.id.editTextPetState);
 
         editTextPetName.setText("");
-        editTextPetType.setText("");
-        editTextPetAge.setText("");
-        editTextPetGender.setText("");
+        spinnerPetType.setSelection(0);
+        spinnerPetAge.setSelection(0);
+        spinnerPetGender.setSelection(0);
         editTextPetState.setText("");
 
         // Reset imageViewCenter
@@ -214,7 +262,6 @@ public class AddPetActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -246,5 +293,34 @@ public class AddPetActivity extends AppCompatActivity {
         MenuInflater mif = getMenuInflater();
         mif.inflate(R.menu.bottom_nav_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private String[] generateAgeList() {
+        String[] ageArray = new String[22];
+        ageArray[0] = getString(R.string.age_hint);
+        for (int i = 0; i <= 20; i++) {
+            ageArray[i+1] = String.valueOf(i);
+        }
+        return ageArray;
+    }
+
+    private boolean isValidState(String password) {
+        String regex = "^[^\\d]+$"; // non-digit
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+    private boolean validateFields(){
+        String state = editTextPetState.getText().toString();
+
+        if (!isValidState(state)) {
+            editTextPetState.setError(getString(R.string.valid_state));
+            return false;
+        } else {
+            editTextPetState.setError(null);
+        }
+
+        return !state.isEmpty();
     }
 }
