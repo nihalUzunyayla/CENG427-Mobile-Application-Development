@@ -26,18 +26,21 @@
         android:theme="@style/Theme.PawRescue"
         tools:targetApi="31">
         <activity
+            android:name=".AccountSettingsActivity"
+            android:exported="false"
+            android:label="Account Settings"/>
+        <activity
             android:name=".ProfileSettingsActivity"
             android:exported="false"
-            android:label="Profile Settings" />
-            <activity
+            android:label="@string/profile_settings" />
+        <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
             android:label="@string/title_activity_lost_found_platform"
             android:theme="@style/Theme.PawRescue.NoActionBar" />
         <activity
             android:name=".PetFactsActivity"
-            android:exported="false" />
-        <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
+            android:exported="false" /> <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
@@ -50,7 +53,7 @@
         </activity> <!-- SignInActivity, SignUpActivity'den sonra açılacak ekran -->
         <activity
             android:name=".SignInActivity"
-            android:label="@string/sign_in"
+            android:label="SIGN IN"
             android:parentActivityName=".SignUpActivity" /> <!-- MainActivity, SignInActivity'den sonra açılacak ekran -->
         <activity
             android:name=".MainActivity"

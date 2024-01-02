@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pawrescue.AccountSettingsActivity;
 import com.example.pawrescue.ProfileSettingsActivity;
 import com.example.pawrescue.R;
 import com.example.pawrescue.SignUpActivity;
@@ -40,6 +41,8 @@ public class SettingsFragment extends Fragment {
         buttonAccountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AccountSettingsActivity.class));
+
             }
         });
 

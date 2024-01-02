@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Paw Rescue</string>
+    <string name="app_name" translatable="false">Paw Rescue</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Main Menu</string>
     <string name="title_notifications">Settings</string>
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
-    <string name="title">PAW RESCUE</string>
+    <string name="title" translatable="false">PAW RESCUE</string>
     <string name="mail_hint">E-mail</string>
     <string name="password_hint">Password</string>
     <string name="name_hint">Username</string>
@@ -30,28 +30,28 @@
     <string name="donation_description">Enter the donation amount:</string>
     <string name="credit_card">Enter the card number:</string>
     <string name="phone_number">Enter the phone number:</string>
-    <string name="cvv">CVV:</string>
+    <string name="cvv" translatable="false">CVV:</string>
     <string name="expiration">Expiration date:</string>
     <string name="card_hint">Card Number</string>
     <string name="code">Confirmation Code: </string>
     <string name="confirmation_title">Confirmation Code</string>
     <string name="confirmation">Please enter the confirmation code</string>
-    <string name="phone_hint">(5 _ _) _ _ _ _ _ _ _</string>
-    <string name="cvv_hint">CVV</string>
+    <string name="phone_hint" translatable="false">(5 _ _) _ _ _ _ _ _ _</string>
+    <string name="cvv_hint" translatable="false">CVV</string>
     <string name="exp_hint">Expiration Date</string>
     <string name="account_already_exists">This account already exists, please Sign In</string>
     <string name="addPet_btn1">ADD PET\nPLATFORM</string>
-    <string name="addPet_btn2">ADD PET</string>
-    <string name="addPet">Add Pet</string>
-    <string name="addPet_title">ADD PET</string>
+    <string name="addPet_btn2">ADD PAW</string>
+    <string name="addPet">Add Paw</string>
+    <string name="addPet_title">ADD PAW</string>
     <string name="name_pet_hint">Name</string>
     <string name="type_hint">Type</string>
     <string name="age_hint">Age</string>
     <string name="gender_hint">Gender</string>
     <string name="state_hint">State</string>
     <string name="menu">MAIN MENU</string>
-    <string name="displayPet_btn">ADOPT\nPET</string>
-    <string name="adoptPet_title">Adopt Pet</string>
+    <string name="displayPet_btn">ADOPT\nPAW</string>
+    <string name="adoptPet_title">Adopt Paw</string>
     <string name="select_type">Select Type:</string>
     <string name="select_age">Select Age:</string>
     <string name="select_gender">Select Gender:</string>
@@ -108,6 +108,7 @@
     <string name="mail_text">E-mail: </string>
     <string name="password_text">Password: </string>
     <string name="name_text">Username: </string>
+    <string name="language_preferences">Language Preferences: </string>
 
 
 </resources>
