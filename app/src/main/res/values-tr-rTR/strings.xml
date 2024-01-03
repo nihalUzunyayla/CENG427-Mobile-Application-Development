@@ -111,10 +111,10 @@
     <string name="font_text">Bu bir örnek metindir.</string>
     <string name="font_size">Yazı Boyutu:</string>
     <string name="accountSettings">HESAP AYARLARI</string>
-
     <string name="communication">Belirtilen numara üzerinden sizinle iletişime geçilecektir: </string>
     <string name="add">EKLE</string>
     <string name="valid_age">Geçerli bir yaş değeri giriniz</string>
     <string name="found_pet">PATİNİZİ BULDUM!</string>
-
+    <string name="save_changes">Değişiklikleri Kaydet</string>
+    <string name="new_password">Yeni Parola</string>
 </resources>
