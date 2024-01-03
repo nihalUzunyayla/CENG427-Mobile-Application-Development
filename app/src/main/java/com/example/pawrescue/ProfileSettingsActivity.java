@@ -189,4 +189,5 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         MenuInflater mif = getMenuInflater();
         mif.inflate(R.menu.bottom_nav_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }}
+    }
+}

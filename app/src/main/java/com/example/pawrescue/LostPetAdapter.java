@@ -57,7 +57,7 @@ public class LostPetAdapter extends RecyclerView.Adapter<LostPetAdapter.PetViewH
             Bitmap smallerBitmap = makeSmaller(photoBitmap, 200);
             holder.imageViewPet.setImageBitmap(smallerBitmap);
         } else {
-            holder.imageViewPet.setImageResource(R.drawable.camera);
+            holder.imageViewPet.setImageResource(R.drawable.default_pet);
         }
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {

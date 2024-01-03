@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -133,5 +135,12 @@ public class AccountSettingsActivity extends AppCompatActivity {
     private boolean getDarkModePreference() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getBoolean(PREF_DARK_MODE_KEY, false); // Varsayılan değer false olarak ayarlandı.
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mif = getMenuInflater();
+        mif.inflate(R.menu.bottom_nav_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
