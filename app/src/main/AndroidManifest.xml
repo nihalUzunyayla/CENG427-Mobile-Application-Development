@@ -37,11 +37,13 @@
         <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
-            android:label="Lost/Found Platform" />
+            android:label="Lost/Found Platform"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PetFactsActivity"
             android:exported="false"
-            android:label="Daily Facts"/>
+            android:label="Daily Facts"
+            android:parentActivityName=".MainActivity"/>
 
         <activity
             android:name=".SignUpActivity"
@@ -66,7 +68,8 @@
         </activity>
         <activity
             android:name=".DonationActivity"
-            android:label="Donation" />
+            android:label="Donation"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".DisplayPetActivity"
             android:exported="false"
@@ -75,7 +78,8 @@
         <activity
             android:name=".AddPetActivity"
             android:exported="false"
-            android:label="Add Paw" />
+            android:label="Add Paw"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".EmergencyActivity"
             android:exported="false"
