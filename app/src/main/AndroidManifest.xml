@@ -28,7 +28,7 @@
         <activity
             android:name=".AccountSettingsActivity"
             android:exported="false"
-            android:label="Account Settings"/>
+            android:label="@string/profile_settings" />
         <activity
             android:name=".ProfileSettingsActivity"
             android:exported="false"
@@ -54,7 +54,7 @@
         </activity>
         <activity
             android:name=".SignInActivity"
-            android:label="@string/sign_in"
+            android:label="SIGN IN"
             android:parentActivityName=".SignUpActivity" />
         <activity
             android:name=".MainActivity"

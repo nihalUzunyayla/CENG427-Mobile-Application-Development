@@ -84,7 +84,7 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView);
-        builder.setTitle("I FOUND YOUR PET!");
+        builder.setTitle(getString(R.string.found_pet));
 
         EditText editTextName = dialogView.findViewById(R.id.editTextFoundName);
         EditText editTextSurname = dialogView.findViewById(R.id.editTextFoundSurname);
@@ -98,11 +98,11 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
             if (!foundName.isEmpty() && !foundSurname.isEmpty() && !foundPhoneNumber.isEmpty()) {
                 showContactMessage(foundPhoneNumber);
             } else {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.empty_field), Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setNegativeButton("Cancel", (dialog, which) -> {
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> {
             // Handle Cancel button action if needed
         });
 
@@ -111,11 +111,11 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
     }
 
     private void showContactMessage(String phoneNumber) {
-        String message = "Contact will be established with you through the following number: " + phoneNumber;
+        String message = getString(R.string.communication)+ phoneNumber;
 
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG);
 
-        snackbar.setAction("OK", v -> {
+        snackbar.setAction(getString(R.string.ok), v -> {
             // Handle the action if needed
         });
 
@@ -195,9 +195,9 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
         editTextLostAddress = dialogView.findViewById(R.id.editTextLostAddress);
         imageViewCenter = dialogView.findViewById(R.id.imageViewPet);
 
-        builder.setPositiveButton("Add", null); // Set to null for custom handling
+        builder.setPositiveButton(getString(R.string.add), null); // Set to null for custom handling
 
-        builder.setNegativeButton("Cancel", (dialog, which) -> {
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> {
             // Handle Cancel button action if needed
             dialog.dismiss(); // Dismiss the dialog when Cancel button is clicked
         });
@@ -213,16 +213,21 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
                 String petGender = editTextPetGender.getText().toString();
                 String lostAddress = editTextLostAddress.getText().toString();
 
+                // Check if the selectedImage is null, set it to the default image
+                if (selectedImage == null) {
+                    selectedImage = BitmapFactory.decodeResource(getResources(), R.drawable.default_pet);
+                }
+
                 if (checkEditFieldsNotEmpty(editTextPetName, editTextPetType, editTextPetAge, editTextPetGender, editTextLostAddress)) {
                     try {
                         int petAge = Integer.parseInt(petAgeText);
                         addPetToDatabase(petName, petType, petAge, petGender, selectedImage, lostAddress);
                         alertDialog.dismiss(); // Dismiss the dialog only if all fields are filled
                     } catch (NumberFormatException e) {
-                        Toast.makeText(this, "Pet age must be a valid number", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.valid_age), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "Fill in all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.empty_field), Toast.LENGTH_SHORT).show();
                     // Dialog will not be dismissed here
                 }
             });
@@ -251,6 +256,7 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
 
         alertDialog.show();
     }
+
 
 
     private void addPetToDatabase(String name, String type, int age, String gender, Bitmap photo, String address) {

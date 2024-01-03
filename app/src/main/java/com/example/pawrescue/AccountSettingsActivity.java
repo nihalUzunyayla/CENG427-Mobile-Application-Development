@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -69,5 +71,13 @@ public class AccountSettingsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PREF_LANGUAGE_KEY, language);
         editor.apply();
+    }
+
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mif = getMenuInflater();
+        mif.inflate(R.menu.bottom_nav_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

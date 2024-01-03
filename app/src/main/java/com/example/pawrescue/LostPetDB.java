@@ -91,6 +91,33 @@ public class LostPetDB extends SQLiteOpenHelper {
         return lostPetList;
     }
 
+    public void logDatabaseContents() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_LOST_PETS, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                if (cursor != null && cursor.moveToFirst()) {
+                    int idIndex = cursor.getColumnIndex(KEY_ID);
+                    int nameIndex = cursor.getColumnIndex(KEY_NAME);
+                    int typeIndex = cursor.getColumnIndex(KEY_TYPE);
+                    int ageIndex = cursor.getColumnIndex(KEY_AGE);
+                    int genderIndex = cursor.getColumnIndex(KEY_GENDER);
+                    int lostAddressIndex = cursor.getColumnIndex(KEY_LOST_ADDRESS);
+
+                    if (idIndex != -1 && nameIndex != -1 && typeIndex != -1 && ageIndex != -1 &&
+                            genderIndex != -1 && lostAddressIndex != -1) {
+
+                        Log.d("LostPetDatabase", "Name: " + nameIndex + ", Type: " + typeIndex + ", Age: " + ageIndex + ", Gender: " + genderIndex + ", Address: " + lostAddressIndex);
+                    }
+                }
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+    }
+
+
     public LostPet cursorToLostPet(Cursor cursor) {
         LostPet lostPet = null;
         try {

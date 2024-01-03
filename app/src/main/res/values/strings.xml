@@ -109,6 +109,10 @@
     <string name="password_text">Password: </string>
     <string name="name_text">Username: </string>
     <string name="language_preferences">Language Preferences: </string>
+    <string name="communication">Contact will be established with you through the following number: </string>
+    <string name="add">ADD</string>
+    <string name="valid_age">Pet age must be a valid number</string>
+    <string name="found_pet">I FOUND YOUR PET!</string>
 
 
 </resources>
