@@ -32,7 +32,7 @@
         <activity
             android:name=".ProfileSettingsActivity"
             android:exported="false"
-            android:label="@string/profile_settings" />
+            android:label="Profile Settings" />
         <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
@@ -74,11 +74,12 @@
         <activity
             android:name=".DisplayPetActivity"
             android:exported="false"
-            android:label="@string/adoptPet_title" />
+            android:label="Adopt Paw"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddPetActivity"
             android:exported="false"
-            android:label="@string/addPet" />
+            android:label="Add Paw" />
         <activity
             android:name=".EmergencyActivity"
             android:exported="false"
