@@ -97,7 +97,7 @@
     <string name="profile_settings">Profil Ayarları</string>
     <string name="account_settings">Hesap Ayarları</string>
     <string name="logOut">ÇIKIŞ YAP</string>
-    <string name="title_activity_lost_found_platform">KayıpBulunduPlatformu</string>
+    <string name="title_activity_lost_found_platform">Kayıp Bulundu Platformu</string>
     <string name="tab_text_1">KAYIP</string>
     <string name="tab_text_2">BULUNDU</string>
     <string name="lost_pet">KAYIP EVCİL HAYVAN</string>
@@ -111,11 +111,12 @@
     <string name="font_text">Bu bir örnek metindir.</string>
     <string name="font_size">Yazı Boyutu:</string>
     <string name="accountSettings">HESAP AYARLARI</string>
-
     <string name="communication">Belirtilen numara üzerinden sizinle iletişime geçilecektir: </string>
     <string name="add">EKLE</string>
     <string name="valid_age">Geçerli bir yaş değeri giriniz</string>
     <string name="found_pet">PATİNİZİ BULDUM!</string>
+    <string name="save_changes">Değişiklikleri Kaydet</string>
+    <string name="new_password">Yeni Parola</string>
     <string name="term_condition">şartları ve koşulları</string>
     <string name="terms_text">1. Şartların Kabulü\n\n
                 Bu uygulamaya erişerek veya bu uygulamayı kullanarak bu Hüküm ve Koşullara bağlı kalmayı kabul etmiş olursunuz. Bu şartların herhangi bir bölümünü kabul etmiyorsanız uygulamayı kullanamazsınız.\n" +

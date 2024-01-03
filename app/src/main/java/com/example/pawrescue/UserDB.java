@@ -127,8 +127,8 @@ public class UserDB extends SQLiteOpenHelper {
     public int getUserId(User user) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_ID},
-                COLUMN_USERNAME + "=? AND " + COLUMN_EMAIL + "=? AND " + COLUMN_PASSWORD + "=?",
-                new String[]{user.getUsername(), user.getEmail(), user.getPassword()}, null, null, null, null);
+                COLUMN_USERNAME + "=? AND " + COLUMN_EMAIL + "=?",
+                new String[]{user.getUsername(), user.getEmail()}, null, null, null, null);
 
         int id = -1;
         if (cursor != null && cursor.moveToFirst()) {
@@ -146,7 +146,8 @@ public class UserDB extends SQLiteOpenHelper {
     }
 
     public int updateUser(User user) {
-        try (SQLiteDatabase db = this.getWritableDatabase()) { // Veritabanını aç
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
+
             ContentValues values = new ContentValues();
             values.put(COLUMN_USERNAME, user.getUsername());
             values.put(COLUMN_EMAIL, user.getEmail());
@@ -154,17 +155,21 @@ public class UserDB extends SQLiteOpenHelper {
             values.put(COLUMN_PHOTO, convertBitmapToByteArray(user.getPhotoBitmap()));
 
             int userId = getUserId(user);
+            Log.d("UserDB", "updateUser:---------------- Kullanıcı ID: " + userId);
 
             if (userId != -1) {
-                return db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
+                int result = db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
+                Log.d("UserDB", "updateUser: Güncelleme sonucu:************* " + result);
+                return result;
             } else {
-                return -1; // Kullanıcı bulunamadı
+                return -1;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return -1; // Hata durumu
+            return -1;
         }
     }
+
 
 
     private byte[] convertBitmapToByteArray(Bitmap bitmap) {

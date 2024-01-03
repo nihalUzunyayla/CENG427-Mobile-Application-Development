@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -17,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +45,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         TextView profileTextViewName = findViewById(R.id.profileTextViewName);
         TextView profileTextViewEmail = findViewById(R.id.profileTextViewEmail);
         TextView profileTextViewPassword = findViewById(R.id.profileTextViewPassword);
+        Button changePasswordButton = findViewById(R.id.changePasswordButton);
+
 
         userProfile = ((SignInActivity) getParent()).userProfile;
 
@@ -55,6 +60,14 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         } else {
             profileImageView.setImageBitmap(userProfile.getPhotoBitmap());
         }
+
+        changePasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showChangePasswordDialog();
+            }
+        });
+
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +76,44 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         });
 
         checkAndRequestPermissions();
+    }
+    private void showChangePasswordDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_change_password);
+
+        EditText editTextNewPassword = dialog.findViewById(R.id.editTextNewPassword);
+        EditText editTextConfirmPassword = dialog.findViewById(R.id.editTextConfirmPassword);
+        Button buttonSaveChanges = dialog.findViewById(R.id.buttonSaveChanges);
+
+        buttonSaveChanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newPassword = editTextNewPassword.getText().toString();
+                String confirmPassword = editTextConfirmPassword.getText().toString();
+
+                if (newPassword.equals(confirmPassword)) {
+                    userProfile.setPassword(newPassword);
+                    updatePasswordInDatabase(userProfile);
+                    dialog.dismiss();
+                    startProfileSettingsActivity();
+
+                } else {
+                    Toast.makeText(ProfileSettingsActivity.this, getResources().getString(R.string.wrong_password), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void updatePasswordInDatabase(User userProfile) {
+        try (UserDB userDB = new UserDB(this)) {
+            userDB.updateUser(userProfile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void takePhoto() {
@@ -172,6 +223,11 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 Toast.makeText(this, getString(R.string.cam_permission), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    private void startProfileSettingsActivity() {
+        Intent intent = new Intent(this, ProfileSettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

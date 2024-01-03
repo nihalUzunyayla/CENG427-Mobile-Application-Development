@@ -119,6 +119,8 @@
     <string name="add">ADD</string>
     <string name="valid_age">Pet age must be a valid number</string>
     <string name="found_pet">I FOUND YOUR PET!</string>
+    <string name="save_changes">SAVE CHANGES</string>
+    <string name="new_password">New Password</string>
     <string name="term_condition">terms and conditions</string>
     <string name="terms_text">1. Acceptance of Terms\n
                 By accessing or using this application, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use the application.\n\n
