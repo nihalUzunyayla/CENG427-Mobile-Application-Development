@@ -64,7 +64,7 @@
 
         <RadioButton
             android:id="@+id/radioButtonTurkish"
-            android:layout_width="88dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="@string/Turkish"
