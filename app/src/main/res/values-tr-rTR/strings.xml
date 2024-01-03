@@ -13,7 +13,7 @@
     <string name="remember">Beni Hatırla</string>
     <string name="account_prompt">Hesabınız yok mu?</string>
     <string name="account_prompt2">Zaten bir hesabınız var mı?</string>
-    <string name="term_condition">Şartları ve koşulları kabul ediyorum</string>
+    <string name="accept">Kabul ediyorum</string>
     <string name="empty_field">Lütfen tüm alanları doldurun</string>
     <string name="empty_image">Lütfen bir resim seçin</string>
     <string name="wrong_password">Parolalar eşleşmemektedir</string>
@@ -116,5 +116,20 @@
     <string name="add">EKLE</string>
     <string name="valid_age">Geçerli bir yaş değeri giriniz</string>
     <string name="found_pet">PATİNİZİ BULDUM!</string>
-
+    <string name="term_condition">şartları ve koşulları</string>
+    <string name="terms_text">1. Şartların Kabulü\n\n
+                Bu uygulamaya erişerek veya bu uygulamayı kullanarak bu Hüküm ve Koşullara bağlı kalmayı kabul etmiş olursunuz. Bu şartların herhangi bir bölümünü kabul etmiyorsanız uygulamayı kullanamazsınız.\n" +
+                2. Uygulamanın Kullanımı\n
+                Bu uygulamayı yalnızca yasal amaçlarla ve yürürlükteki tüm yasa ve düzenlemelere uygun bir şekilde kullanmayı kabul edersiniz.\n" +
+                3. Kullanıcı Hesapları\n
+                Uygulamanın belirli özelliklerine erişmek için bir kullanıcı hesabı oluşturmanız gerekebilir. Hesap bilgilerinizin gizliliğini korumaktan ve hesabınız altında gerçekleşen tüm faaliyetlerden siz sorumlusunuz.\n\n
+                4. Gizlilik Politikası\n
+                Bu uygulamayı kullanımınız aynı zamanda [Gizlilik Politikası URL\'si] adresinde bulunabilecek Gizlilik Politikamıza da tabidir. Uygulamayı kullanarak Gizlilik Politikası şartlarını kabul etmiş olursunuz.\n\n
+                5. Şartlardaki Değişiklikler\n
+                Bu Şartlar ve Koşulları herhangi bir zamanda güncelleme veya değiştirme hakkını saklı tutuyoruz. Bu tür değişikliklerden sonra uygulamayı kullanmaya devam etmeniz, bu revize edilmiş koşulları kabul ettiğiniz anlamına gelecektir.\n\n
+                6. Fesih\n
+                Koşulları ihlal etmeniz de dahil ancak bunlarla sınırlı olmamak üzere, herhangi bir nedenle, önceden bildirimde bulunmaksızın veya herhangi bir sorumluluk üstlenmeksizin hesabınızı derhal feshedebilir veya askıya alabiliriz.\n\n
+                Bu uygulamayı kullanarak bu Şartlar ve Koşulları kabul etmiş olursunuz. Bu şartlardan herhangi birini kabul etmiyorsanız lütfen uygulamayı kullanmayın.\n\n</string>
+    <string name="terms_title">Şartlar ve Koşullar</string>
+    <string name="accept_term">KABUL EDİYORUM</string>
 </resources>

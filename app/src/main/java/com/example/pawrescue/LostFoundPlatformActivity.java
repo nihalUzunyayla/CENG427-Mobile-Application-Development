@@ -265,11 +265,17 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
 
         if (id != -1) {
             Toast.makeText(this, getString(R.string.pet_saved), Toast.LENGTH_SHORT).show();
+
+            // Add the new pet to the dataset and notify the adapter
+            lostPetList.add(lostPet);
+            lostPetAdapter.notifyDataSetChanged();
+
             clearInputFields();
         } else {
             Toast.makeText(this, getString(R.string.pet_do_not_saved), Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void takePhoto() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

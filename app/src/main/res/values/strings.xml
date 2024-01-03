@@ -14,7 +14,7 @@
     <string name="remember">Remember me</string>
     <string name="account_prompt">Don\'t you have an account?</string>
     <string name="account_prompt2">Already have an account?</string>
-    <string name="term_condition">I accept the terms and conditions</string>
+    <string name="accept">I accept the</string>
     <string name="empty_field">Please fill in all fields</string>
     <string name="empty_image">Please select an image</string>
     <string name="wrong_password">Passwords do not match</string>
@@ -119,6 +119,22 @@
     <string name="add">ADD</string>
     <string name="valid_age">Pet age must be a valid number</string>
     <string name="found_pet">I FOUND YOUR PET!</string>
+    <string name="term_condition">terms and conditions</string>
+    <string name="terms_text">1. Acceptance of Terms\n
+                By accessing or using this application, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use the application.\n\n
+                2. Use of the Application\n
+                You agree to use this application for lawful purposes only and in a manner consistent with all applicable laws and regulations.\n\n
+                3. User Accounts\n
+                To access certain features of the application, you may be required to create a user account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.\n\n
+                4. Privacy Policy\n
+                Your use of this application is also governed by our Privacy Policy, which can be found at [Privacy Policy URL]. By using the application, you consent to the terms of the Privacy Policy.\n\n
+                5. Changes to Terms\n
+                We reserve the right to update or change these Terms and Conditions at any time. Your continued use of the application after any such modifications shall constitute your acceptance of these revised terms.\n\n
+                6. Termination\n
+                We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.\n\n
+                By using this application, you agree to these Terms and Conditions. If you do not agree with any of these terms, please do not use the application.\n\n</string>
+    <string name="terms_title">Terms and Conditions</string>
+    <string name="accept_term">ACCEPT</string>
 
 
 </resources>

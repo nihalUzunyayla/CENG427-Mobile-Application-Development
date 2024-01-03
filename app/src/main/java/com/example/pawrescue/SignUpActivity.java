@@ -1,5 +1,6 @@
 package com.example.pawrescue;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.regex.Matcher;
@@ -19,9 +21,9 @@ import java.util.regex.Pattern;
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText editTextUsername, editTextEmail, editTextPassword, editTextConfirmPassword;
-    private CheckBox checkBoxTerms, checkBoxRememberMe;
+    private CheckBox checkBoxTerms;
     private Button buttonSignUp, buttonSignIn;
-    private TextView textViewSignInPrompt;
+    private TextView textViewSignInPrompt, textViewTerms;
     private UserDB userDB;
 
     @Override
@@ -34,9 +36,9 @@ public class SignUpActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
         checkBoxTerms = (CheckBox) findViewById(R.id.checkBoxTerms);
-        checkBoxRememberMe = (CheckBox) findViewById(R.id.checkBoxRememberMe);
         buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
         textViewSignInPrompt = (TextView) findViewById(R.id.textViewSignInPrompt);
+        textViewTerms = (TextView) findViewById(R.id.textViewTerms);
         buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
         userDB = new UserDB(this);
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +52,13 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+        });
+
+        textViewTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTermsDialog();
             }
         });
 
@@ -153,6 +162,31 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         return !password.isEmpty() && !confirmPassword.isEmpty();
+    }
+
+    private void showTermsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.terms_title));
+        builder.setMessage(getString(R.string.terms_text));
+
+        builder.setPositiveButton(getString(R.string.accept_term), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                checkBoxTerms.setChecked(true);
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                checkBoxTerms.setChecked(false);
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

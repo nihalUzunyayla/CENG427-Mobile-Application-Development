@@ -75,21 +75,22 @@
         android:id="@+id/checkBoxTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/term_condition"
-        android:textColor="@color/black"
         android:layout_below="@id/editTextConfirmPassword"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/accept"
+        android:textColor="@color/black" />
 
-    <CheckBox
-        android:id="@+id/checkBoxRememberMe"
+    <TextView
+        android:id="@+id/textViewTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/remember"
-        android:textColor="@color/black"
-        android:layout_below="@id/checkBoxTerms"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_below="@id/editTextConfirmPassword"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="34dp"
+        android:layout_toRightOf="@id/checkBoxTerms"
+        android:text="@string/term_condition"
+        android:textColor="@color/item_text_purple" />
 
     <Button
         android:id="@+id/buttonSignUp"
@@ -100,7 +101,7 @@
         android:textStyle="bold"
         android:background="#B027A2"
         android:textColor="#FFFFFF"
-        android:layout_below="@id/checkBoxRememberMe"
+        android:layout_below="@id/checkBoxTerms"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
