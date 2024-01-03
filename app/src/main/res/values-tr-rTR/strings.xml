@@ -97,7 +97,7 @@
     <string name="profile_settings">Profil Ayarları</string>
     <string name="account_settings">Hesap Ayarları</string>
     <string name="logOut">ÇIKIŞ YAP</string>
-    <string name="title_activity_lost_found_platform">KayıpBulunduPlatformu</string>
+    <string name="title_activity_lost_found_platform">Kayıp Bulundu Platformu</string>
     <string name="tab_text_1">KAYIP</string>
     <string name="tab_text_2">BULUNDU</string>
     <string name="lost_pet">KAYIP EVCİL HAYVAN</string>

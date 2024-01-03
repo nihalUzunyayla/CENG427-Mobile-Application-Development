@@ -28,7 +28,7 @@
         <activity
             android:name=".AccountSettingsActivity"
             android:exported="false"
-            android:label="@string/profile_settings" />
+            android:label="Account Settings" />
         <activity
             android:name=".ProfileSettingsActivity"
             android:exported="false"
@@ -36,12 +36,12 @@
         <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
-            android:label="@string/title_activity_lost_found_platform" />
+            android:label="Lost/Found Platform" />
         <activity
             android:name=".PetFactsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Daily Facts"/>
 
-      <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
@@ -69,8 +69,7 @@
         </activity>
         <activity
             android:name=".DonationActivity"
-            android:label="@string/donation"
-            android:parentActivityName=".MainActivity" />
+            android:label="Donation" />
         <activity
             android:name=".DisplayPetActivity"
             android:exported="false"

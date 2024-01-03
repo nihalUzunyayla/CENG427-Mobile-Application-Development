@@ -60,6 +60,7 @@ public class LostFoundPlatformActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_found_platform);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lostPetDB = new LostPetDB(this);
 

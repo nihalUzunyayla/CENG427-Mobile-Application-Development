@@ -22,6 +22,7 @@ public class PetFactsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_facts);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tvFactCat = findViewById(R.id.tvFactCat);
         tvFactDog = findViewById(R.id.tvFactDog);
@@ -105,5 +106,6 @@ public class PetFactsActivity extends AppCompatActivity {
     private boolean isAlphanumericWithSpacesAndPunctuation(String text) {
         return text.matches("^[a-zA-Z\\s\\p{Punct}]+$");
     }
+
 
 }

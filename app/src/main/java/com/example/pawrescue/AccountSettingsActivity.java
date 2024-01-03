@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -31,6 +32,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setAppLanguage();
         setContentView(R.layout.activity_account_settings);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RadioGroup radioGroupLanguage = findViewById(R.id.radioGroupLanguage);
         Switch switchDarkMode = findViewById(R.id.switchDarkMode);
@@ -136,11 +138,22 @@ public class AccountSettingsActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getBoolean(PREF_DARK_MODE_KEY, false); // Varsayılan değer false olarak ayarlandı.
     }
-    
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mif = getMenuInflater();
         mif.inflate(R.menu.bottom_nav_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
 }

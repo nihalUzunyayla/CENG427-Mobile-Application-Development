@@ -58,7 +58,7 @@
         android:id="@+id/imageViewDonateNow"
         android:layout_width="280dp"
         android:layout_height="85dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="390dp"
         android:paddingStart="40dp"
         android:paddingTop="10dp"
         android:paddingEnd="40dp"
