@@ -136,9 +136,6 @@ public class AccountSettingsActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         return prefs.getBoolean(PREF_DARK_MODE_KEY, false); // Varsayılan değer false olarak ayarlandı.
     }
-}
-
-
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
