@@ -36,11 +36,12 @@
         <activity
             android:name=".LostFoundPlatformActivity"
             android:exported="false"
-            android:label="@string/title_activity_lost_found_platform"
-            android:theme="@style/Theme.PawRescue.NoActionBar" />
+            android:label="@string/title_activity_lost_found_platform" />
         <activity
             android:name=".PetFactsActivity"
-            android:exported="false" /> <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
+            android:exported="false" />
+
+      <!-- SignUpActivity, uygulamanın başlangıç ekranı olarak belirlendi -->
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
@@ -50,11 +51,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- SignInActivity, SignUpActivity'den sonra açılacak ekran -->
+        </activity>
         <activity
             android:name=".SignInActivity"
-            android:label="SIGN IN"
-            android:parentActivityName=".SignUpActivity" /> <!-- MainActivity, SignInActivity'den sonra açılacak ekran -->
+            android:label="@string/sign_in"
+            android:parentActivityName=".SignUpActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -65,7 +66,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- DonationActivity, Donate Now butonuna tıklandığında açılacak ekran -->
+        </activity>
         <activity
             android:name=".DonationActivity"
             android:label="@string/donation"
