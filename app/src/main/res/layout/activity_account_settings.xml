@@ -7,11 +7,47 @@
     tools:context=".AccountSettingsActivity">
 
     <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/accountSettings"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:id="@+id/switchDarkMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/textViewTitle"
+        android:padding="10dp"
+        android:text="@string/dark_mode"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+-    <CheckBox
+        android:id="@+id/checkboxNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/switchDarkMode"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:text="Enable Notifications"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/textViewLanguagePreferences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
+        android:layout_below="@+id/checkboxNotifications"
         android:text="@string/language_preferences"
         android:textSize="17sp"
         android:textStyle="bold"/>
@@ -21,25 +57,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/textViewLanguagePreferences"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/checkboxNotifications"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioButtonTurkish"
-            android:layout_width="wrap_content"
+            android:layout_width="88dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="Turkish" />
+            android:text="@string/Turkish"
+            />
 
         <RadioButton
             android:id="@+id/radioButtonEnglish"
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="English"
-            android:checked="true"
-            />
+            android:text="@string/English" />
     </RadioGroup>
 
-<!-- Diğer account sayfası öğeleri buraya eklenebilir -->
+
+    <RelativeLayout
+        android:id="@+id/fontLayout"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_below="@id/textViewLanguagePreferences"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/textViewFontSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/font_size"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/fontSizeSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewFontSize"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:max="2"
+            android:thumb="@drawable/custom_thumb" />
+
+        <!-- Yeni TextView -->
+        <TextView
+            android:id="@+id/bottomTextView"
+            android:layout_width="381dp"
+            android:layout_height="135dp"
+            android:layout_below="@id/fontSizeSeekBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/font_text"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

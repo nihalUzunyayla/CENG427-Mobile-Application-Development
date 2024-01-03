@@ -109,6 +109,12 @@
     <string name="password_text">Password: </string>
     <string name="name_text">Username: </string>
     <string name="language_preferences">Language Preferences: </string>
+    <string name="Turkish">Turkish</string>
+    <string name="English">English</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="font_size">Font Size:</string>
+    <string name="font_text">This is an example text.</string>
+    <string name="accountSettings">ACCOUNT SETTINGS</string>
 
 
 </resources>

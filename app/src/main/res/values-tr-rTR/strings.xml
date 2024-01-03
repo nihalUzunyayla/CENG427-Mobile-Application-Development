@@ -105,5 +105,12 @@
     <string name="password_text">Şifre: </string>
     <string name="name_text">Kullanıcı Adı: </string>
     <string name="language_preferences">Dil Tercihleri: </string>
+    <string name="Turkish">Türkçe</string>
+    <string name="English">İngilizce</string>
+    <string name="dark_mode">Karanlık Mod</string>
+    <string name="font_text">Bu bir örnek metindir.</string>
+    <string name="font_size">Yazı Boyutu:</string>
+    <string name="accountSettings">HESAP AYARLARI</string>
+
 
 </resources>
