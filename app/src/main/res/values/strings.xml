@@ -40,7 +40,7 @@
     <string name="cvv_hint" translatable="false">CVV</string>
     <string name="exp_hint">Expiration Date</string>
     <string name="account_already_exists">This account already exists, please Sign In</string>
-    <string name="addPet_btn1">ADD PET\nPLATFORM</string>
+    <string name="addPet_btn1">ADD PAW\nPLATFORM</string>
     <string name="addPet_btn2">ADD PAW</string>
     <string name="addPet">Add Paw</string>
     <string name="addPet_title">ADD PAW</string>
